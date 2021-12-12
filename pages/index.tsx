@@ -1,20 +1,18 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../styles/Home.module.css';
 import Router from 'next/router';
+import LoginForm from '../components/Login/Form';
+import AlignCenter from '../components/Layouts/AlignCenter';
 
-const Home: NextPage = () => {
-  const handleClick = (e: any, page: any) => {
-    e.preventDefault();
-    console.log('i clicked a page');
-  };
-  console.log();
+const LoginPage: NextPage = () => {
   return (
-    <div>
-      <button onClick={(e) => handleClick(e, 'blog')}>Home</button>
-    </div>
+    <>
+      <AlignCenter>
+        <LoginForm />
+      </AlignCenter>
+    </>
   );
 };
 
-export default Home;
+export default LoginPage;
