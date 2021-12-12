@@ -1,14 +1,16 @@
 import React from 'react';
 
 interface ICardProps {
-  width: string;
-  height: string;
-  boxShadow: string;
+  width?: string;
+  height?: string;
+  boxShadow?: string;
   outline?: string;
-  padding: string;
-  borderRadius: string;
-  background: string;
-  margin: string;
+  padding?: string;
+  borderRadius?: string;
+  background?: string;
+  margin?: string;
+  display?: string;
+  gridTemplateColumns?: string;
   children?: React.ReactNode;
 }
 
@@ -22,6 +24,8 @@ const Card = ({
   borderRadius,
   background,
   margin,
+  display,
+  gridTemplateColumns,
 }: ICardProps) => {
   return (
     <div
@@ -34,6 +38,8 @@ const Card = ({
         borderRadius: `${borderRadius}`,
         background: `${background}`,
         margin: `${margin}`,
+        display: `${display}`,
+        gridTemplateColumns: `${gridTemplateColumns}`,
       }}
     >
       {children}
