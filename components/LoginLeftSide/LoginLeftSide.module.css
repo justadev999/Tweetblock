@@ -5,23 +5,20 @@
   margin: 5rem;
   background-image: url('../../images/loginFormImage.jpg');
   border-radius: 25px;
+  max-width: 650px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
 }
 
 .blurred-wrapper {
-  height: 685px;
+  height: 600px;
   width: 400px;
   border-radius: 25px;
-  background: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0.32) 0%,
-    rgba(196, 196, 196, 0.05) 100%
-  );
   border: 1px solid #000000;
   box-sizing: border-box;
-  backdrop-filter: blur(34px);
   padding: 2rem;
-
+  background: rgba(51, 107, 235, 0.19);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(7.4px);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -43,9 +40,4 @@
 .blurred-wrapper button {
   position: absolute;
   bottom: 2rem;
-}
-
-.blurred-wrapper button:hover {
-  transform: translateY(-0.4rem);
-  transform: translateX(0.4rem);
 }
