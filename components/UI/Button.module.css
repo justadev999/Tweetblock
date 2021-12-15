@@ -1,0 +1,10 @@
+.button-style {
+  color: #f2f2f2;
+  background: black;
+  border: none;
+  border-radius: 25px;
+  height: 80px;
+  width: 336px;
+  transition: all 0.1s ease-in;
+  cursor: pointer;
+}

@@ -1,18 +1,22 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
 import Router from 'next/router';
-import LoginForm from '../components/Login/Form';
 import AlignCenter from '../components/Layouts/AlignCenter';
+import Card from '../components/UI/Card';
+import LoginForm from '../components/LoginRightSide/LoginRightSide';
+import LoginLeftSide from '../components/LoginLeftSide/LoginLeftSide';
 
-const LoginPage: NextPage = () => {
+const Home: NextPage = () => {
   return (
     <>
       <AlignCenter>
-        <LoginForm />
+        <Card>
+          <LoginLeftSide />
+          <LoginForm />
+        </Card>
       </AlignCenter>
     </>
   );
 };
 
-export default LoginPage;
+export default Home;

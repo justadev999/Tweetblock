@@ -1,35 +1,12 @@
 import React from 'react';
+import styles from './Button.module.css';
 
 interface IPropsButton {
-  width?: string;
-  height?: string;
-  color?: string;
-  backgroundColor?: string;
-  borderRadius?: string;
   children?: string;
 }
 
-const Button = ({
-  children,
-  width,
-  height,
-  color,
-  backgroundColor,
-  borderRadius,
-}: IPropsButton) => {
-  return (
-    <button
-      style={{
-        width: `${width}`,
-        height: `${height}`,
-        color: `${color}`,
-        backgroundColor: `${backgroundColor}`,
-        borderRadius: `${borderRadius}`,
-      }}
-    >
-      {children}
-    </button>
-  );
+const Button = ({ children }: IPropsButton) => {
+  return <button className={styles['button-style']}>{children}</button>;
 };
 
 export default Button;

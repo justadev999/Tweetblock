@@ -2,7 +2,7 @@ import React from 'react';
 import style from './AlignCenter.module.css';
 
 interface IAlignCenterProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const AlignCenter = ({ children }: IAlignCenterProps) => {

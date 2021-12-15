@@ -1,0 +1,67 @@
+.main-section {
+  display: grid;
+  background: #343536;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+  border-radius: 2.5rem;
+  width: 95%;
+  height: 90vh;
+  padding: 2rem;
+  margin: 0.8rem;
+}
+
+.imageWrapper {
+  height: 45rem;
+  width: 35rem;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+
+  background-image: url('../../images/loginFormImage.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 25px;
+}
+
+.blurred-div {
+  width: 40rem;
+  height: 44rem;
+
+  background: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0.32) 0%,
+    rgba(196, 196, 196, 0.4) 100%
+  );
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  backdrop-filter: blur(34px);
+  border-radius: 25px;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+}
+
+.blurred-div h1 {
+  color: #f2f2f2;
+  font-weight: 900;
+  font-size: 2.5rem;
+
+  align-self: flex-start;
+}
+
+.blurred-div p {
+  color: #f2f2f2;
+  font-weight: 200;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+
+  align-self: flex-start;
+}
+
+.blurred-div button {
+  position: absolute;
+  bottom: 2rem;
+}
