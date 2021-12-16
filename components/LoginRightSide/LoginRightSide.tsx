@@ -6,6 +6,7 @@ import style from './Form.module.css';
 import styles from './LoginRightSide.module.css';
 import { checkPwValidity } from './utils/passwordIsValid';
 import { IInputState, IValidState } from './interfaces';
+import SignupIcons from '../UI/SignupIcons';
 
 const LoginForm = () => {
   const [input, setInput] = useState<IInputState>({
@@ -66,26 +67,31 @@ const LoginForm = () => {
     : `${styles.invalid}`;
 
   return (
-    <form className={styles['form']} onSubmit={handleSubmit}>
-      <h1>Welcome to Tweetblock</h1>
-      <p>Create your account.</p>
-      <label htmlFor="email">Email address</label>
-      <input
-        className={emailValidBorder}
-        id="email"
-        placeholder="Enter your email"
-        onChange={handleEmailChange}
-      />
-      <label className={styles.test} htmlFor="password">
-        Set Password
-      </label>
-      <input
-        id="password"
-        placeholder="Enter your password"
-        onChange={handlePasswordlChange}
-      />
-      <Button>Sign up</Button>
-    </form>
+    <>
+      <div className={styles.wrapper}>
+        <form className={styles['form']} onSubmit={handleSubmit}>
+          <h1>Welcome to Tweetblock</h1>
+          <p>Create your account.</p>
+          <label htmlFor="email">Email address</label>
+          <input
+            className={emailValidBorder}
+            id="email"
+            placeholder="Enter your email"
+            onChange={handleEmailChange}
+          />
+          <label className={styles.test} htmlFor="password">
+            Set Password
+          </label>
+          <input
+            id="password"
+            placeholder="Enter your password"
+            onChange={handlePasswordlChange}
+          />
+          <Button>Sign up</Button>
+        </form>
+        <SignupIcons />
+      </div>
+    </>
   );
 };
 
