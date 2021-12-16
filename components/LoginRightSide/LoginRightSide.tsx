@@ -17,21 +17,11 @@ const LoginForm = () => {
     passwordIsValid: false,
   });
 
-  // const [focus, setFocus] = useState<
-  //   DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
-  // >({
-  //   emailOnFocus: true,
-  //   emailOnBlur: false,
-  //   passwordlOnBlur: false,
-  //   passwordlOnFocus: false,
-  // });
-
   //REFS
   const emailInput = useRef<any>(null);
   const passwordInput = useRef(null);
 
   //useInputHook
-
   const handleEmailChange = (e: any) => {
     setInput((prev) => {
       return { ...prev, email: e.target.value };
@@ -68,9 +58,7 @@ const LoginForm = () => {
       email: input.email,
       password: input.password,
     };
-    if (validInput.passwordIsValid && validInput.emailIsValid) {
-      console.log(signedUser);
-    }
+    console.log(signedUser);
   };
 
   const emailValidBorder = validInput.emailIsValid
