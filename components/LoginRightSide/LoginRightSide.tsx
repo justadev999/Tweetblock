@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import useInput from '../hooks/useInput';
 import Button from '../UI/Button';
 import Card from '../UI/Card';
 import style from './Form.module.css';
 import styles from './LoginRightSide.module.css';
+import { checkPwValidity } from './utils/passwordIsValid';
 import { IInputState, IValidState } from './interfaces';
 
 const LoginForm = () => {
@@ -15,11 +17,21 @@ const LoginForm = () => {
     passwordIsValid: false,
   });
 
+  //REFS
   const emailInput = useRef(null);
+  const passwordInput = useRef(null);
+
+  //useInputHook
 
   const handleEmailChange = (e: any) => {
     setInput((prev) => {
       return { ...prev, email: e.target.value };
+    });
+  };
+
+  const handlePasswordlChange = (e: any) => {
+    setInput((prev) => {
+      return { ...prev, password: e.target.value };
     });
   };
 
@@ -35,6 +47,11 @@ const LoginForm = () => {
       });
     }
   }, [input, validInput.emailIsValid, setValidInput]);
+
+  useEffect(() => {
+    let validPassword = checkPwValidity(input.password);
+    console.log(validPassword);
+  });
 
   const emailValidBorder = validInput.emailIsValid
     ? `${styles.valid}`
@@ -55,7 +72,12 @@ const LoginForm = () => {
       <label className={styles.test} htmlFor="password">
         Set Password
       </label>
-      <input id="password" placeholder="Enter your password" />
+      <input
+        id="password"
+        placeholder="Enter your password"
+        onChange={handlePasswordlChange}
+        ref={passwordInput}
+      />
       <Button>Sign up</Button>
     </form>
   );
