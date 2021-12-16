@@ -17,8 +17,17 @@ const LoginForm = () => {
     passwordIsValid: false,
   });
 
+  // const [focus, setFocus] = useState<
+  //   DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
+  // >({
+  //   emailOnFocus: true,
+  //   emailOnBlur: false,
+  //   passwordlOnBlur: false,
+  //   passwordlOnFocus: false,
+  // });
+
   //REFS
-  const emailInput = useRef(null);
+  const emailInput = useRef<any>(null);
   const passwordInput = useRef(null);
 
   //useInputHook
@@ -53,12 +62,23 @@ const LoginForm = () => {
     console.log(validPassword);
   }, [input.password]);
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const signedUser = {
+      email: input.email,
+      password: input.password,
+    };
+    if (validInput.passwordIsValid && validInput.emailIsValid) {
+      console.log(signedUser);
+    }
+  };
+
   const emailValidBorder = validInput.emailIsValid
     ? `${styles.valid}`
     : `${styles.invalid}`;
 
   return (
-    <form className={styles['form']}>
+    <form className={styles['form']} onSubmit={handleSubmit}>
       <h1>Welcome to Tweetblock</h1>
       <p>Create your account.</p>
       <label htmlFor="email">Email address</label>
@@ -67,7 +87,6 @@ const LoginForm = () => {
         id="email"
         placeholder="Enter your email"
         onChange={handleEmailChange}
-        ref={emailInput}
       />
       <label className={styles.test} htmlFor="password">
         Set Password
@@ -76,7 +95,6 @@ const LoginForm = () => {
         id="password"
         placeholder="Enter your password"
         onChange={handlePasswordlChange}
-        ref={passwordInput}
       />
       <Button>Sign up</Button>
     </form>
