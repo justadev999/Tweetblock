@@ -51,7 +51,7 @@ const LoginForm = () => {
   useEffect(() => {
     let validPassword = checkPwValidity(input.password);
     console.log(validPassword);
-  });
+  }, [input.password]);
 
   const emailValidBorder = validInput.emailIsValid
     ? `${styles.valid}`
