@@ -1,0 +1,35 @@
+.grid-wrapper {
+  height: 95vh;
+  width: 95%;
+  margin: 1.5rem;
+
+  display: grid;
+  grid-template-columns: 20% 60%, 20%;
+}
+
+.grid-wrapper div {
+  background-color: #343536;
+  border-radius: 25px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.profile-div {
+  width: 22rem;
+  height: 30rem;
+  margin-bottom: 2rem;
+}
+
+.activities-div {
+  width: 22rem;
+  height: 30rem;
+}
+
+.left-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.center-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+}
