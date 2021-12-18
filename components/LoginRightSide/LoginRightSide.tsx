@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Ref } from 'react';
 import useInput from '../hooks/useInput';
 import Button from '../UI/Button';
 import Card from '../UI/Card';
 import style from './Form.module.css';
 import styles from './LoginRightSide.module.css';
 import { checkPwValidity } from './utils/passwordIsValid';
-import { IInputState, IValidState } from './interfaces';
+import { IInputState, IValidState } from './utils/interfaces';
 import SignupIcons from '../UI/SignupIcons';
+import { isGeneratorObject } from 'util/types';
 
 const LoginForm = () => {
   const [input, setInput] = useState<IInputState>({
@@ -17,12 +18,15 @@ const LoginForm = () => {
     emailIsValid: false,
     passwordIsValid: false,
   });
+  const [focusInput, setFocusInput] = useState(false);
 
   //REFS
   const emailInput = useRef<any>(null);
-  const passwordInput = useRef(null);
+  const passwordInput = useRef<any>(null);
 
-  //useInputHook
+  /////////////////////////
+  /////HANDLE ONCHANGES/////
+  /////////////////////////
   const handleEmailChange = (e: any) => {
     setInput((prev) => {
       return { ...prev, email: e.target.value };
@@ -34,6 +38,15 @@ const LoginForm = () => {
       return { ...prev, password: e.target.value };
     });
   };
+
+  ////////////////////
+  /////USEEFFECTS/////
+  ////////////////////
+
+  useEffect(() => {
+    emailInput.current.focus();
+    setFocusInput(true);
+  });
 
   useEffect(() => {
     if (input.email.trim().length >= 6) {
@@ -53,13 +66,25 @@ const LoginForm = () => {
     console.log(validPassword);
   }, [input.password]);
 
+  ////////////////////
+  ////HANDLE SUBMIT///
+  ////////////////////
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const signedUser = {
       email: input.email,
       password: input.password,
     };
-    console.log(signedUser);
+    if (validInput.emailIsValid && validInput.passwordIsValid) {
+      console.log(signedUser);
+    }
+    if (!validInput.emailIsValid && !validInput.passwordIsValid) {
+      console.log('there are mistakes');
+    }
+    setInput((prev) => {
+      return { ...prev, email: '', password: '' };
+    });
   };
 
   const emailValidBorder = validInput.emailIsValid
@@ -78,6 +103,7 @@ const LoginForm = () => {
             id="email"
             placeholder="Enter your email"
             onChange={handleEmailChange}
+            ref={emailInput}
           />
           <label className={styles.test} htmlFor="password">
             Set Password
