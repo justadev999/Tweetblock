@@ -5,23 +5,23 @@ import AlignCenter from '../Layouts/AlignCenter';
 const SocialSection = () => {
   return (
     <AlignCenter>
-      <div className={styles['grid-wrapper']}>
-        <div className={styles['left-wrapper']}>
-          <div className={styles['profile-div']}>PROFILE</div>
-          <div className={styles['activities-div']}>ACTIVITIES</div>
+      <section className={styles['main-section']}>
+        <div className={styles['left-column']}>
+          <div className={styles['profile-div']}>
+            <div className={styles['profile-div-header']}></div>
+            <div className={styles['profile-pic']}></div>
+            <div className={styles['nikname-div']}>
+              <h1>Nickname</h1>
+              <h2>@edit nickname</h2>
+            </div>
+            <div className={styles['caption-div']}>
+              <p>Hi my name is simone and im a full stack dev </p>
+            </div>
+          </div>
         </div>
-
-        <div className={styles['center-wrapper']}>
-          <div className={styles['post-div']}>POST</div>
-          <ul className={styles['posts-ul']}>
-            <li>Li</li>
-          </ul>
-        </div>
-
-        <div className={styles['right-wrapper']}>
-          <div className={styles['boh-div']}>BOH</div>
-        </div>
-      </div>
+        <div>2</div>
+        <div>3</div>
+      </section>
     </AlignCenter>
   );
 };
